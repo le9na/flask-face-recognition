@@ -1,3 +1,4 @@
+#Include Libraries
 import cv2
 import face_recognition as fp
 import numpy as np
@@ -5,8 +6,10 @@ from flask import Flask, render_template, Response
 
 app=Flask(__name__)
 
+# Camera Capture from WebCam
 cam = cv2.VideoCapture(0)
 
+# Prepare Data
 abdulelah = fp.load_image_file("data/abdulelah.jpg")
 saleh = fp.load_image_file("data/saleh.jpg")
 yosef = fp.load_image_file("data/yosef.jpg")
@@ -30,7 +33,6 @@ known_names = [
 face_locations = []
 face_encodings = []
 names = []
-process_frame = True
 
 def generate_frames():
     while True:
